@@ -11,6 +11,20 @@ print("O programa só irá funcionar se o número de colunas"
       "da matriz passar pelas condições de convergência !")
 print("")
 
+'''
+
+- Exemplo de input:
+
+3
+10
+0.01
+
+20 7 9 16
+7 30 8 38
+9 8 30 38
+
+'''
+
 mi_t, m1_a = [[],[]]
 
 l = int(input("Número de linhas: "))
