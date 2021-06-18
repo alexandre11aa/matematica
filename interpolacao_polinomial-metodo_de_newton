@@ -1,0 +1,75 @@
+import sympy as sym
+import time
+
+while True:
+        t_c = input("Gostaria de Testar, Calcular, Achar Função? [T/C/F] ")
+
+        print("")
+
+        if t_c == "T":
+                v_x = [-1,0,2]
+                v_y = [4, 1, -1]
+                p_x = [1]
+        else:
+                v_x = list(map(float,input("Informe os valores de x: ").split()))
+                v_y = list(map(float,input("Informe os valores de y: ").split()))
+                print("")
+
+                if t_c == "C":
+                        p_x = list(map(float,input("Informe os valores para x: ").split()))
+                        print("")
+                else:
+                        p_x = [sym.Symbol('x')]
+
+        inicio = time.time()
+
+        m_x, m_a, m_p, c_1 = [[],[],v_y,len(v_x)-1]
+
+        for i in range(1,len(v_x)+1):
+                c_2 = 0
+                m_x.append(m_p[0])
+                
+                for j in range(c_1):	
+                        m_a.append((m_p[j+1] - m_p[j]) / (v_x[j+i] - v_x[j]))
+                        c_2 += 1
+
+                c_1 -= 1
+
+                m_p = m_a
+                m_a = []
+
+        for i in range(len(p_x)):
+                s, r, c_3 = [0,0,0]
+
+                for c in range(len(v_x)):
+                        s = m_x[c]
+                        for l in range(c_3):
+                                s = s * (p_x[i] - v_x[l])
+
+                        r += s
+                        c_3 += 1
+
+                if t_c == "F":
+                        p = ""
+
+                        for i in range(len(str(r))):
+                                if str(r)[i] == "x":
+                                        p += "sym.Symbol('x')"
+                                else:
+                                        p += str(r)[i]
+
+                        print("A função  resumida será:", sym.expand(r))
+                        print("A função expandida será:", eval(str(p)))
+                else:
+                        print("O valor de P(%.2f) = %.2f" % (p_x[i], r))
+
+        print("")
+        fim = time.time()
+        print("Tempo de execução: %.4f" % (fim - inicio))
+
+        print("")
+        c = input("Deseja continuar? [S/N] ")
+        print("")
+
+        if c == "N":
+                break
