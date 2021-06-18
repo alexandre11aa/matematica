@@ -1,0 +1,63 @@
+import sympy as sym
+import time
+
+while True:
+        t_c = input("Gostaria de Testar, Calcular, Achar Função? [T/C/F] ")
+
+        print("")
+
+        if t_c == "T":
+                v_x = [-1,0,2]
+                v_y = [4, 1, -1]
+                p_x = [1]
+        else:
+                v_x = list(map(float,input("Informe os valores de x: ").split()))
+                v_y = list(map(float,input("Informe os valores de y: ").split()))
+
+                if t_c == "C":
+                        print("")
+                        p_x = list(map(float,input("Informe os valores para x: ").split()))
+                else:
+                        p_x = [sym.Symbol('x')]
+
+        print("")
+
+        inicio = time.time()
+
+        for i in range(len(p_x)):
+                r = 0
+
+                for l in range(len(v_y)):
+                        dndo = 1
+                        dsor = 1
+                        for c in range(len(v_x)):
+                                if v_x[c] != v_x[l]:
+                                        dndo *= (p_x[i] - v_x[c])
+                                        dsor *= (v_x[l] - v_x[c])
+
+                        r += (v_y[l] * dndo / dsor)
+
+                if t_c == "F":
+                        p = ""
+
+                        for i in range(len(str(r))):
+                                if str(r)[i] == "x":
+                                        p += "sym.Symbol('x')"
+                                else:
+                                        p += str(r)[i]
+
+                        print("A função  resumida será:", sym.expand(r))
+                        print("A função expandida será:", eval(str(p)))
+                else:
+                        print("O valor de P(%.2f) = %.2f" % (p_x[i], r))
+
+        print("")
+        fim = time.time()
+        print("Tempo de execução: %.4f" % (fim - inicio))
+
+        print("")
+        c = input("Deseja continuar? [S/N] ")
+        print("")
+
+        if c == "N":
+                break
