@@ -1,5 +1,9 @@
 import math
 
+'''Cosseno: math.cos(x)
+   Seno: math.sin(x)
+   Tangente: math.tan(x)'''
+
 def sinal(nmr):
 	if nmr >= 0:
 		nmr = "+%.5f" % nmr
