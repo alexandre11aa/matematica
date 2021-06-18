@@ -2,7 +2,7 @@
 
 @ Algorítmos para cálculos matemáticos.
 
-@ Obs: Cada commit é um algorítmo diferente.
+@ OBS: Cada commit é um algorítmo diferente.
 
 - Cálculo de Raízes pelo Método da Bissecção (calculo_de_raizes-metodo_da_bissecção.py)
 
