@@ -2,7 +2,7 @@
 
 Algorítmos para cálculos matemáticos.
 
-# OBS: Cada documento é um algorítmo diferente.
+OBS: Cada documento é um algorítmo diferente.
 
 # Cálculo de Raízes pelo Método da Bissecção (calculo_de_raizes-metodo_da_bissecção.py)
 
