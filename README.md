@@ -1,4 +1,4 @@
-# Matemática
+# matematica
 
 Algorítmos para cálculos matemáticos.
 
